@@ -1,8 +1,8 @@
 function Firefly(x, y) {
   this.pos = createVector(x, y);
   this.prev = createVector(x, y);
-  this.vel = createVector();
-  this.stroke = parseInt(random(0,10) % 2) ?  color(255, 204, 0): color(136, 170, 0);
+  this.vel = createVector(); //p5.Vector.random2D();
+  this.stroke = parseInt(random(0,10) % 2) ?  color(255, 204, 0, random(50,255)): color(136, 170, 0, random(50,255));
 
   this.acc = createVector();
   this.update = function() {
@@ -21,10 +21,11 @@ function Firefly(x, y) {
   };
 
   this.attracted = function(target) {
+    // var dir = target - this.pos
     var force = p5.Vector.sub(target, this.pos);
     var d = force.mag();
     d = constrain(d, 1, 25);
-    var G = 45;
+    var G = 200;
     var strength = G / (d * d);
     force.setMag(strength);
     if (d < 20) {
