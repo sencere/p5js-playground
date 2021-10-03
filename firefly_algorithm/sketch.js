@@ -2,7 +2,7 @@ let fireflyArray = [];
 let fr = 30;
 let interval = 5000;
 
-var myVar = setInterval(myTimer, interval);
+let myVar = setInterval(myTimer, interval);
 
 function myTimer() {
   this.fireflyArray = [];
